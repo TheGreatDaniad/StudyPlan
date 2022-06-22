@@ -14,4 +14,17 @@ function fetchCL(callback) {
           });
     }
 
-module.exports = {fetchCL};
+
+    function fetchSP(callback, user) {
+        var query = "SELECT study_plan FROM Student WHERE username='".concat(toString(user)).concat("'");
+
+        db.all(query, function (err, rows) {
+            if(err){
+                console.log(err);
+            }else{
+              callback(rows);
+            }
+          });
+    }
+
+module.exports = {fetchCL, fetchSP};

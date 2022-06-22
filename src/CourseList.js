@@ -1,4 +1,6 @@
-export default function CourseList({list, addtoSP}) {
+import { addItemSP } from './constants/global';
+
+export default function CourseList({list}) {
     return (
         <div style={{height:'50%'}}>
 
@@ -8,7 +10,9 @@ export default function CourseList({list, addtoSP}) {
                 {list.map((item, index)=>(
 
                     <div className='card w100' key={index}>
-                    <div className="card-header">{item.code}</div>
+                    <div className="card-header">{item.code}
+                    <button type="button" className="btn btn-primary" onClick={()=>addItemSP(item)}>Add To Plan</button>
+                    </div>
                     <a href="/d" className="card-body text-dark bg-light list-group-item list-group-item-action active">
                         <div className="d-flex w-100 justify-content-between">
                             <h5 className="card-title">{item.name}</h5>

@@ -28,12 +28,10 @@ app.use(function (req, res, next) {
 
 
 app.route('/studyplan')
-.post((req, res) => {
-    res.status(200).json({ message: "POST completed;" });
-})
 .get((req, res) => {
-    res.status(200).json({ message: "GET completed;" });
+  dbhandler.fetchSP((data)=> {res.status(200).json(data)});
 });
+
 
 app.get("/CourseList", (req, res)=> {
   dbhandler.fetchCL((data)=> {res.status(200).json(data)});
