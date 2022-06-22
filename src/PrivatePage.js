@@ -29,7 +29,7 @@ export default class PrivatePage extends React.Component{
   };
 
   componentDidMount(){
-    //this.updateState();
+    this.updateState();
   };
 
 

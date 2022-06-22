@@ -12,16 +12,11 @@ function App() {
     <div className="App">
       <Router>
 
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
 
-          <Link to='/public'>Public</Link>
-          <Link to='/private'>Private</Link>
+        <Link to='/public'>Course List</Link>
+        <p>Start Creating your Study Plan</p>
+        <Link to='/private'>Study Plan</Link>
 
-        </header>
 
 
         <Routes>
