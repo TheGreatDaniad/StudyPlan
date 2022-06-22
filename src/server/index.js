@@ -1,3 +1,4 @@
+const dbhandler = require('./dbhandler');
 const express = require("express");
 const cors = require('cors');
 const PORT = process.env.PORT || 3001;
@@ -34,7 +35,9 @@ app.route('/items')
     res.status(200).json({ message: "GET completed;" });
 });
 
-
+app.get("/CourseList", (req, res)=> {
+  dbhandler.fetchCL((data)=> {res.status(200).json(data)});
+})
 
 app.get("/auth/login", (req, res) => {
   res.status(200).json({ message: "Hello from the server!" });
@@ -48,3 +51,5 @@ app.post("/auth/login", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
+
+

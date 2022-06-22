@@ -21,9 +21,9 @@ export default class PublicPage extends React.Component{
 
   fetchCL = () => {
     let token = getCookie('my-token');
-    axios.get('http://localhost:3001/items', {headers: {'x-json-web-token': token}})
+    axios.get('http://localhost:3001/CourseList', {headers: {'x-json-web-token': token}})
       .then((res) => {
-        this.setState({items: [...res.data]});})
+        this.setState({items: res.data});})
       .catch((error) => {
         console.log(error);
     });

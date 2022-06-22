@@ -7,7 +7,7 @@ export default function CourseList({list, addtoSP}) {
             <div className="list-group">
                 {list.map((item, index)=>(
 
-                    <div className='card w100' key='index'>
+                    <div className='card w100' key={index}>
                     <div className="card-header">{item.code}</div>
                     <a href="/d" className="card-body text-dark bg-light list-group-item list-group-item-action active">
                         <div className="d-flex w-100 justify-content-between">
