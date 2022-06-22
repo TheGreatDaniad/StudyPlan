@@ -17,7 +17,7 @@ export const LoginPage = (props) => {
     event.preventDefault();
     axios.post(url, {email, password})
       .then((res) => {
-        document.cookie = 'my-token='+res.data.token+'; max-age=60;';
+        document.cookie = 'my-token='+res.data.token+'; max-age=10000;';
         navigate(from); })
       .catch((error) => {
         console.log(error);});

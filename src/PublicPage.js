@@ -2,6 +2,7 @@ import React from 'react';
 import getCookie from './getCookie';
 import axios from 'axios';
 import CourseList from './CourseList';
+import { updateCourses} from './constants/global';
 
 export default class PublicPage extends React.Component{
   constructor(props){
@@ -23,7 +24,8 @@ export default class PublicPage extends React.Component{
     let token = getCookie('my-token');
     axios.get('http://localhost:3001/CourseList', {headers: {'x-json-web-token': token}})
       .then((res) => {
-        this.setState({items: res.data});})
+        this.setState({items: res.data});
+        updateCourses(res.data)})
       .catch((error) => {
         console.log(error);
     });

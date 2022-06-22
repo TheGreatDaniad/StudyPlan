@@ -27,7 +27,7 @@ app.use(function (req, res, next) {
 });
 
 
-app.route('/items')
+app.route('/studyplan')
 .post((req, res) => {
     res.status(200).json({ message: "POST completed;" });
 })

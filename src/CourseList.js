@@ -12,12 +12,16 @@ export default function CourseList({list, addtoSP}) {
                     <a href="/d" className="card-body text-dark bg-light list-group-item list-group-item-action active">
                         <div className="d-flex w-100 justify-content-between">
                             <h5 className="card-title">{item.name}</h5>
-                            <small>{item.totalEnrolled}/{item.capacity}</small>
+                            <small>{item.totalEnrolled>0 ? item.totalEnrolled : "-"}/{item.capacity>0 ? item.capacity : "-"}</small>
+                            <small>Credits:{item.credits}</small>
                         </div>
-                        <p className="card-text">{item.desc}</p>
-                        <div className="progress">
-                            <div className="progress-bar" role="progressbar" style={{width: '35%'}} aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
+                        <h4>Description: </h4>
+                        <span className="card-text">
+                            This course is incompatible with: {item.incompat ? item.incompat : "None"}
+                            <br/>
+                            Preparatory Course: {item.prep ? item.prep : "None"}
+
+                        </span>
                     </a>
                     </div>
 

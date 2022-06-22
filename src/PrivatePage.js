@@ -20,9 +20,9 @@ export default class PrivatePage extends React.Component{
 
   updateState = () => {
     let token = getCookie('my-token');
-    axios.get('http://localhost:3001/items', {headers: {'x-json-web-token': token}})
+    axios.get('http://localhost:3001/studyplan', {headers: {'x-json-web-token': token}})
       .then((res) => {
-        this.setState({items: [...res.data]});})
+        this.setState({items: [res.data]});})
       .catch((error) => {
         console.log(error);
     });
@@ -34,14 +34,27 @@ export default class PrivatePage extends React.Component{
 
 
   render(){
-    return(
-      <div>
-        <h1>You have successfully logged in. Now, you have access to this page!</h1>
-        <h2>List of items:</h2>
-        <ul>{this.state.items.map((item) => (
-          <li key={item._id}>{item.name}</li>
-        ))}</ul>
-      </div>
-    );
+    if(this.items){
+      return(
+        <div>
+          <h1>Start Editing your Styudy Plan!</h1>
+          <h2>List of items:</h2>
+          <ul>
+            {this.state.items.map((item) => (
+              <li key={item._id}>{item.name}</li>
+            ))}
+          </ul>
+        </div>
+      );
+      
+    } else {
+      return(
+        <div>
+          <h1>
+            You Have no Study plan; Start adding courses!
+          </h1>
+        </div>
+      );    
+    }
   };
 };
