@@ -32,6 +32,17 @@ app.route('/studyplan')
   dbhandler.fetchSP((data)=> {res.status(200).json(data)});
 });
 
+app.route('/update_sp')
+.get((req, res) => {
+  dbhandler.updateSP((data)=> {res.status(200).json(data)}, "USERNAME", req.query.sp);
+});
+
+app.route('/discard_sp')
+.get((req, res) => {
+  dbhandler.deleteSP((data)=> {res.status(200).json(data)});
+});
+
+
 
 app.get("/CourseList", (req, res)=> {
   dbhandler.fetchCL((data)=> {res.status(200).json(data)});

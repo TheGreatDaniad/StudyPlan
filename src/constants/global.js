@@ -1,6 +1,4 @@
 const baseUrl = 'http://localhost:3001'
-const themeDefault = 'dark'
-const namesOfModes = ['dark', 'moonlight', 'eclipse', 'light'];
 var username = "";
 var courses=[];
 var studyPlan=[];
@@ -27,4 +25,8 @@ function getSP(){
     return studyPlan.length > 0 ? studyPlan : 0;
 }
 
-export { baseUrl, themeDefault, namesOfModes, updateCourses,  updateSP, getSP, getCL, addItemSP }
+function setUsername(un){
+    username = un;
+}
+
+export { baseUrl, updateCourses,  updateSP, getSP, getCL, addItemSP, setUsername }
